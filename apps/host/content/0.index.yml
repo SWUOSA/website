@@ -1,0 +1,116 @@
+title: 开源与网络安全协会 | 西南大学 
+description: 致力于推广开源文化，提升网络安全意识，培养具有创新精神和实践能力的信息技术人才
+navigation: false
+hero:
+  title: 西南大学开源与网络安全协会
+  description: 致力于推广开源文化，提升网络安全意识，培养具有创新精神和实践能力的信息技术人才
+  links:
+    - label: 加入我们
+      icon: i-lucide-users
+      trailing: true
+      to: /join
+      size: xl
+    - label: GitHub
+      icon: i-simple-icons-github
+      size: xl
+      color: neutral
+      variant: subtle
+      to: https://github.com/swuosa
+      target: _blank
+sections:
+  - title: 关于我们
+    description: 西南大学开源与网络安全协会（SWUOSA）成立于2013年，原名西南大学 Linux 协会，校信息办直属社团，多次荣获五星级社团称号，是一个由对开源软件和网络安全感兴趣的学生自发组织的社团。
+    id: about
+    orientation: horizontal
+    features:
+      - name: 开源精神
+        description: 推广开源文化，分享技术知识，共同学习成长
+        icon: i-lucide-code
+      - name: 技术交流
+        description: 定期举办技术分享会、工作坊，促进技术交流
+        icon: i-lucide-users
+      - name: 实践创新
+        description: 参与开源项目开发，培养实践能力
+        icon: i-lucide-rocket
+  - title: 我们的活动
+    description: 协会通过多种形式的活动，为同学们提供学习和交流的平台
+    orientation: horizontal
+    reverse: true
+    features:
+      - name: 技术讲座
+        description: 邀请业内专家进行技术分享，拓展技术视野
+        icon: i-lucide-presentation
+      - name: CTF竞赛
+        description: 组织网络安全竞赛，提升实战能力
+        icon: i-lucide-shield
+      - name: 项目实践
+        description: 参与开源项目开发，积累实战经验
+        icon: i-lucide-code-2
+features:
+  title: 为什么加入我们
+  description: 加入开源与网络安全协会，你将获得：
+  items:
+    - title: 技术提升
+      description: 通过实践项目和技术分享，快速提升技术能力
+      icon: i-lucide-trending-up
+    - title: 社区交流
+      description: 结识志同道合的伙伴，共同探讨技术问题
+      icon: i-lucide-users
+    - title: 项目经验
+      description: 参与真实项目开发，积累实战经验
+      icon: i-lucide-code
+    - title: 竞赛机会
+      description: 参加各类CTF比赛，提升网络安全实战能力
+      icon: i-lucide-trophy
+    - title: 资源共享
+      description: 获取优质学习资源，了解最新技术动态
+      icon: i-lucide-share
+    - title: 职业发展
+      description: 对接业界资源，为职业发展打下基础
+      icon: i-lucide-briefcase
+testimonials:
+  headline: 了解社团结构
+  title: 部门组成
+  description: 多个部门组合成为协会，感受不同部门的魅力
+  items:
+    - quote: "网络安全部专注于网络攻防技术研究与实践，定期组织CTF竞赛和安全技能培训。我们涉及Web安全、逆向工程、密码学、网络协议分析等多个领域，为成员提供从入门到进阶的全面安全技能培养。"
+      user:
+        name: 网络安全部门
+        description: 网络攻防/渗透测试/信息安全
+        avatar:
+          src: https://i.pravatar.cc/120?img=1
+    - quote: "学术部负责组织技术讲座、学术研讨会和前沿技术分享活动，鼓励成员参与学术研究和论文发表。我们与校内外专家保持密切联系，定期举办读书会和技术沙龙，促进知识交流与学术创新。"
+      user:
+        name: 学术部
+        description: 学术研究/技术分享/论文发表
+        avatar:
+          src: https://i.pravatar.cc/120?img=7
+    - quote: "开发部承担协会各类项目的开发与维护工作，包括网站、应用和工具开发。我们采用敏捷开发方法，注重代码质量和团队协作，为成员提供真实项目经验，培养全栈开发能力和项目管理技能。"
+      user:
+        name: 开发部
+        description: 软件开发/项目管理/技术支持
+        avatar:
+          src: https://i.pravatar.cc/120?img=3
+    - quote: "游戏开发部专注于游戏开发与设计，为成员提供游戏开发实践机会。我们涉及游戏策划、美术设计、编程开发等多个领域，为成员提供从入门到进阶的全面游戏开发技能培养。"
+      user:
+        name: 游戏开发部
+        description: 游戏开发/游戏设计/游戏测试
+        avatar:
+          src: https://i.pravatar.cc/120?img=4
+    - quote: "混合现实开发部专注于混合现实技术的研究和应用，为成员提供混合现实开发实践机会。我们涉及混合现实技术、游戏开发、技术支持等多个领域，为成员提供从入门到进阶的全面混合现实开发技能培养。"
+      user:
+        name: 混合现实开发部
+        description: 混合现实开发/游戏开发/技术支持
+        avatar:
+          src: https://i.pravatar.cc/120?img=5
+cta:
+  title: 加入我们
+  description: 我们欢迎所有对开源技术和网络安全感兴趣的同学加入！
+  links:
+    - label: 立即加入
+      to: '/join'
+      icon: i-lucide-users
+    - label: 了解更多
+      to: '/about'
+      trailingIcon: i-lucide-arrow-right
+      variant: subtle

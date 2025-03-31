@@ -1,0 +1,46 @@
+{
+  "name": "swuosa",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "lint": "eslint .",
+    "typecheck": "nuxt typecheck",
+    "netlify:build": "nuxt build && nuxt prepare",
+    "netlify:deploy": "cp -r .output/public ../public/host"
+  },
+  "dependencies": {
+    "@iconify-json/lucide": "^1.2.32",
+    "@iconify-json/simple-icons": "^1.2.29",
+    "@micro-zoe/micro-app": "1.0.0-rc.24",
+    "@nuxt/content": "^3.4.0",
+    "@nuxt/image": "^1.10.0",
+    "@nuxt/ui-pro": "^3.0.1",
+    "@standard-schema/spec": "^1.0.0",
+    "@vueuse/motion": "^3.0.3",
+    "@vueuse/nuxt": "^13.0.0",
+    "nuxt": "^3.16.1",
+    "nuxt-og-image": "^5.0.5",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@nuxt/eslint": "^1.2.0",
+    "eslint": "^9.22.0",
+    "typescript": "^5.8.2",
+    "vue-tsc": "^2.2.0"
+  },
+  "resolutions": {
+    "unimport": "4.1.1",
+    "vue-tsc": "2.2.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "better-sqlite3"
+    ]
+  },
+  "packageManager": "pnpm@10.6.5"
+}

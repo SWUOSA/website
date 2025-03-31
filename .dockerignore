@@ -1,0 +1,45 @@
+# Git
+.git
+.gitignore
+
+# Node.js
+node_modules
+npm-debug.log
+yarn-error.log
+
+# Build files
+*/dist
+*/build
+*/.output
+*/.nuxt
+
+# 开发环境文件
+.env
+.env.local
+.env.development
+
+# 测试文件
+*/test
+*/tests
+*/*.test.js
+*/*.spec.js
+
+# 编辑器配置
+.idea
+.vscode
+*.swp
+*.swo
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 日志
+logs
+*.log
+
+# 其他
+README.md
+docker-compose*.yml
+Dockerfile*
+.dockerignore 
