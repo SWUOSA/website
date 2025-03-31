@@ -13,7 +13,10 @@ useSeoMeta({
 <template>
   <div v-if="page">
     <ClientOnly>
-      <app name="Content Platform" url="http://localhost:3002" />
+      <app
+        name="Content Platform"
+        url="http://localhost:3002"
+      />
     </ClientOnly>
   </div>
 </template>

@@ -10,6 +10,9 @@ useSeoMeta({
 
 <template>
   <ClientOnly>
-    <app name="Content Platform" url="http://localhost:3002" />
+    <app
+      name="Content Platform"
+      url="http://localhost:3002"
+    />
   </ClientOnly>
 </template>

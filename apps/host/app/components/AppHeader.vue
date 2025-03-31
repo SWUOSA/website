@@ -20,7 +20,10 @@ const items = computed(() => [{
     <template #left>
       <NuxtLink to="/">
         <div class="flex items-center gap-2">
-          <NuxtImg src="/favicon.svg" class="w-auto h-12 shrink-0" />
+          <NuxtImg
+            src="/favicon.svg"
+            class="w-auto h-12 shrink-0"
+          />
           <span class="text-xl font-bold">开源与网络安全协会</span>
         </div>
       </NuxtLink>

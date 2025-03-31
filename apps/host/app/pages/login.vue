@@ -57,40 +57,39 @@ async function onSubmit(payload: FormSubmitEvent<Schema>) {
   try {
     isLoading.value = true
     console.log('Submitted', payload)
-    
+
     // 发送登录请求到API
     const data = await apiRequest<{ token?: string }>(API_ENDPOINTS.LOGIN, {
       method: 'POST',
       body: JSON.stringify({
         studentId: payload.data.studentId,
-        password: payload.data.password,
+        password: payload.data.password
       })
     })
-    
+
     // 登录成功
     toast.add({
       title: '登录成功',
       description: '欢迎回来',
       color: 'success'
     })
-    
+
     // 登录成功后保存token（如果有）
     if (data.token) {
       // 在实际应用中应该使用安全的方式存储token
       localStorage.setItem('token', data.token)
     }
-    
+
     // 延迟后跳转到首页
     setTimeout(() => {
       router.push('/')
     }, 1000)
-    
   } catch (error) {
     console.error('Login error:', error)
-    
+
     // 处理API错误
     const errorMessage = handleApiError(error, '登录失败，请检查学号和密码')
-    
+
     toast.add({
       title: '登录失败',
       description: errorMessage,

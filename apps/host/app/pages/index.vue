@@ -11,12 +11,12 @@ useSeoMeta({
 
 // 定义优化的动画效果 - 允许多次触发但避免闪烁
 const fadeInUpAnimation = {
-  initial: { 
-    opacity: 0, 
-    y: 100 
+  initial: {
+    opacity: 0,
+    y: 100
   },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     y: 0,
     transition: {
       duration: 800,
@@ -39,9 +39,9 @@ const aboutMotion = {
   ...fadeInUpAnimation,
   visible: {
     ...fadeInUpAnimation.visible,
-    transition: { 
+    transition: {
       duration: 800,
-      ease: 'easeOut' 
+      ease: 'easeOut'
     }
   }
 }
@@ -50,10 +50,10 @@ const activitiesMotion = {
   ...fadeInUpAnimation,
   visible: {
     ...fadeInUpAnimation.visible,
-    transition: { 
-      duration: 800, 
+    transition: {
+      duration: 800,
       delay: 100,
-      ease: 'easeOut' 
+      ease: 'easeOut'
     }
   }
 }
@@ -62,10 +62,10 @@ const featuresMotion = {
   ...fadeInUpAnimation,
   visible: {
     ...fadeInUpAnimation.visible,
-    transition: { 
-      duration: 800, 
+    transition: {
+      duration: 800,
       delay: 200,
-      ease: 'easeOut' 
+      ease: 'easeOut'
     }
   }
 }
@@ -74,10 +74,10 @@ const departmentsMotion = {
   ...fadeInUpAnimation,
   visible: {
     ...fadeInUpAnimation.visible,
-    transition: { 
-      duration: 800, 
+    transition: {
+      duration: 800,
       delay: 300,
-      ease: 'easeOut' 
+      ease: 'easeOut'
     }
   }
 }
@@ -87,10 +87,10 @@ const cardMotions = (index: number) => ({
   ...fadeInUpAnimation,
   visible: {
     ...fadeInUpAnimation.visible,
-    transition: { 
-      duration: 800, 
+    transition: {
+      duration: 800,
       delay: 150 + index * 100,
-      ease: 'easeOut' 
+      ease: 'easeOut'
     }
   }
 })
@@ -113,21 +113,21 @@ const cardMotions = (index: number) => ({
     <UPageSection
       v-for="(section, index) in page.sections"
       :key="index"
+      v-motion="index === 0 ? aboutMotion : activitiesMotion"
       :title="section.title"
       :description="section.description"
       :orientation="section.orientation"
       :reverse="section.reverse"
       :features="section.features"
-      v-motion="index === 0 ? aboutMotion : activitiesMotion"
       :motion-instance="{ threshold: 0.3, throttle: 300 }"
     >
       <ImagePlaceholder />
     </UPageSection>
 
     <UPageSection
+      v-motion="featuresMotion"
       :title="page.features.title"
       :description="page.features.description"
-      v-motion="featuresMotion"
       :motion-instance="{ threshold: 0.3, throttle: 300 }"
     >
       <UPageGrid>
@@ -135,8 +135,8 @@ const cardMotions = (index: number) => ({
           v-for="(item, index) in page.features.items"
           :key="index"
           v-bind="item"
-          spotlight
           v-motion="cardMotions(index)"
+          spotlight
           :motion-instance="{ threshold: 0.3, throttle: 300 }"
         />
       </UPageGrid>
@@ -144,20 +144,20 @@ const cardMotions = (index: number) => ({
 
     <UPageSection
       id="testimonials"
+      v-motion="departmentsMotion"
       :headline="page.testimonials.headline"
       :title="page.testimonials.title"
       :description="page.testimonials.description"
-      v-motion="departmentsMotion"
       :motion-instance="{ threshold: 0.3, throttle: 300 }"
     >
       <UPageColumns class="xl:columns-5">
         <UPageCard
           v-for="(testimonial, index) in page.testimonials.items"
           :key="index"
+          v-motion="cardMotions(index)"
           variant="subtle"
           :description="testimonial.quote"
           :ui="{ description: 'text-base before:content-[open-quote] after:content-[close-quote]' }"
-          v-motion="cardMotions(index)"
           :motion-instance="{ threshold: 0.3, throttle: 300 }"
         >
           <template #footer>

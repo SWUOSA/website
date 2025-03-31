@@ -52,7 +52,7 @@ async function onSubmit(payload: FormSubmitEvent<Schema>) {
   try {
     isLoading.value = true
     console.log('Submitted', payload)
-    
+
     // 发送注册请求到API
     const data = await apiRequest<{ token?: string }>(API_ENDPOINTS.REGISTER, {
       method: 'POST',
@@ -61,30 +61,29 @@ async function onSubmit(payload: FormSubmitEvent<Schema>) {
         password: payload.data.password
       })
     })
-    
+
     // 注册成功
     toast.add({
       title: '注册成功',
       description: '您已成功注册账号',
       color: 'success'
     })
-    
+
     // 如果注册成功同时返回token，可以直接登录
     if (data.token) {
       localStorage.setItem('token', data.token)
     }
-    
+
     // 延迟后跳转到登录页
     setTimeout(() => {
       router.push('/login')
     }, 1000)
-    
   } catch (error) {
     console.error('Registration error:', error)
-    
+
     // 处理API错误
     const errorMessage = handleApiError(error, '注册失败，请稍后再试')
-    
+
     toast.add({
       title: '注册失败',
       description: errorMessage,

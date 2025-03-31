@@ -55,7 +55,7 @@ function onSubmit() {
     title: '订阅成功！',
     description: '您已成功订阅我们的技术周刊，我们将定期为您发送最新技术动态。'
   })
-  
+
   setTimeout(() => {
     loading.value = false
     email.value = ''
@@ -79,7 +79,7 @@ function onSubmit() {
                 label="加入群聊 了解更多"
                 size="lg"
               >
-                <NuxtImg 
+                <NuxtImg
                   src="/qrcode.png"
                   alt="西南大学开源与网络安全协会"
                   class="w-56 h-56"

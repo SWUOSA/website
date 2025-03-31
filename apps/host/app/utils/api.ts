@@ -16,7 +16,7 @@ export const getApiUrl = (path: string): string => {
  */
 export const useApiEndpoints = () => {
   const config = useRuntimeConfig()
-  
+
   return {
     LOGIN: config.public.apiLoginUrl,
     REGISTER: config.public.apiRegisterUrl,
@@ -85,4 +85,4 @@ export const handleApiError = (error: any, defaultMessage = '操作失败，请�
 
   // 返回状态码对应的消息或自定义消息或默认消息
   return error.data?.message || statusMessages[error.status] || defaultMessage
-} 
+}
