@@ -13,7 +13,11 @@
     "check-types": "turbo run check-types",
     "netlify:build": "turbo run build",
     "netlify:deploy": "turbo run netlify:deploy",
-    "netlify:serve": "npx serve .output/public -l 3000"
+    "netlify:serve": "npx serve .output/public -l 3000",
+    "start:prod": "turbo run build && pnpm start:prod:host",
+    "start:prod:host": "cd apps/host && node .output/server/index.mjs",
+    "start:prod:content": "cd apps/content-platform && pnpm start:prod",
+    "start:prod:all": "echo '启动所有服务...' && pnpm build && npm-run-all --parallel start:prod:*"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^4.11.0",
@@ -25,6 +29,7 @@
     "eslint-plugin-format": "^1.0.1",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.19",
+    "npm-run-all": "^4.1.5",
     "prettier": "^3.5.3",
     "prettier-plugin-astro": "^0.14.1",
     "turbo": "^2.4.4",

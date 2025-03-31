@@ -11,7 +11,8 @@
     "lint": "eslint .",
     "typecheck": "nuxt typecheck",
     "netlify:build": "nuxt build && nuxt prepare",
-    "netlify:deploy": "cp -r .output/public ../public/host"
+    "netlify:deploy": "cp -r .output/public ../public/host",
+    "start:prod": "node .output/server/index.mjs"
   },
   "dependencies": {
     "@iconify-json/lucide": "^1.2.32",
