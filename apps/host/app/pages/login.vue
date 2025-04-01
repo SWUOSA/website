@@ -13,10 +13,78 @@ useSeoMeta({
 
 const toast = useToast()
 const router = useRouter()
+const route = useRoute()
 const API_ENDPOINTS = useApiEndpoints()
 
 // 登录状态
 const isLoading = ref(false)
+
+// 用户信息类型定义
+interface User {
+  fullName: string
+  className: string
+  college: string
+  eduSystemId: string
+  grade: string
+  id: number
+}
+
+// 全局用户状态
+const user = useState<User | null>('user')
+
+// 处理 GitHub OAuth 登录
+async function handleGithubLogin(code: string) {
+  try {
+    isLoading.value = true
+
+    // 发送 GitHub 登录请求到API
+    const data = await apiRequest<{ access_token?: string, user: User }>(API_ENDPOINTS.GITHUB_LOGIN, {
+      method: 'POST',
+      body: JSON.stringify({ code })
+    })
+
+    // 登录成功
+    toast.add({
+      title: '登录成功',
+      description: '欢迎回来',
+      color: 'success'
+    })
+
+    // 保存用户信息和token
+    if (data.access_token) {
+      localStorage.setItem('token', data.access_token)
+    }
+    if (data.user) {
+      user.value = data.user
+    }
+
+    // 延迟后跳转到首页
+    setTimeout(() => {
+      router.push('/')
+    }, 1000)
+  } catch (error) {
+    console.error('GitHub login error:', error)
+
+    // 处理API错误
+    const errorMessage = handleApiError(error, 'GitHub 登录失败，请重试')
+
+    toast.add({
+      title: '登录失败',
+      description: errorMessage,
+      color: 'error'
+    })
+  } finally {
+    isLoading.value = false
+  }
+}
+
+// 检查 URL 中是否包含 GitHub OAuth code
+onMounted(() => {
+  const code = route.query.code as string
+  if (code) {
+    handleGithubLogin(code)
+  }
+})
 
 const fields = [{
   name: 'studentId',
@@ -59,7 +127,7 @@ async function onSubmit(payload: FormSubmitEvent<Schema>) {
     console.log('Submitted', payload)
 
     // 发送登录请求到API
-    const data = await apiRequest<{ token?: string }>(API_ENDPOINTS.LOGIN, {
+    const data = await apiRequest<{ access_token?: string, user: User }>(API_ENDPOINTS.LOGIN, {
       method: 'POST',
       body: JSON.stringify({
         studentId: payload.data.studentId,
@@ -74,10 +142,12 @@ async function onSubmit(payload: FormSubmitEvent<Schema>) {
       color: 'success'
     })
 
-    // 登录成功后保存token（如果有）
-    if (data.token) {
-      // 在实际应用中应该使用安全的方式存储token
-      localStorage.setItem('token', data.token)
+    // 保存用户信息和token
+    if (data.access_token) {
+      localStorage.setItem('token', data.access_token)
+    }
+    if (data.user) {
+      user.value = data.user
     }
 
     // 延迟后跳转到首页

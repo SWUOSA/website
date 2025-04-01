@@ -20,7 +20,8 @@ export const useApiEndpoints = () => {
   return {
     LOGIN: config.public.apiLoginUrl,
     REGISTER: config.public.apiRegisterUrl,
-    GITHUB_OAUTH: `${config.public.apiGithubOauthUrl}?client_id=${config.public.apiGithubClientId}`
+    GITHUB_OAUTH: `${config.public.apiGithubOauthUrl}?client_id=${config.public.apiGithubClientId}`,
+    GITHUB_LOGIN: config.public.apiGithubLoginUrl
   }
 }
 
