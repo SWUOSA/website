@@ -6,7 +6,8 @@ export default defineNuxtConfig({
     '@nuxt/ui-pro',
     '@nuxt/content',
     '@vueuse/nuxt',
-    '@vueuse/motion/nuxt'
+    '@vueuse/motion/nuxt',
+    'nuxt-lucide-icons'
   ],
   devtools: {
     enabled: true
